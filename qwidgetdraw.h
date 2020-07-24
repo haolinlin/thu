@@ -1,14 +1,17 @@
 #ifndef QWIDGETDRAW_H
 #define QWIDGETDRAW_H
-
+#include <QLabel>
 #include <QWidget>
 
 class QWidgetDraw : public QWidget
 {
     Q_OBJECT
 public:
+    QLabel *label;
+
     QTimer *timer;
     QPixmap map;
+
     int x = 0;
     int y = 0;
     int dir = 0;
@@ -28,6 +31,7 @@ public:
     void refresh();
     void refreshFromData(int data);
     void testRx(int data);
+void setLabelText(QString labelText);
 
 private:
     void paintEvent(QPaintEvent *event) override;

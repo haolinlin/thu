@@ -2,7 +2,7 @@
 #include <QPainter>
 #include <QTimer>
 #include <QDebug>
-
+#include <QLabel>
 int ecgWave[]=
 {
     2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
@@ -61,7 +61,9 @@ int ecgWave[]=
 QWidgetDraw::QWidgetDraw(QWidget *parent) : QWidget(parent)
 {
 //    this->resize(1600,500);
-
+this->label = new QLabel(this);
+this->label->setStyleSheet("color：white");
+//this->label->setGeometry(0,10,50,10);
     this->map = QPixmap(this->width(), this->height());
     this->map.fill(Qt::black);
 
@@ -74,6 +76,13 @@ QWidgetDraw::QWidgetDraw(QWidget *parent) : QWidget(parent)
     connect(this, &QWidgetDraw::rxDataSignal, this, &QWidgetDraw::refreshFromData);
     connect(this, &QWidgetDraw::rxDataSignal, this, &QWidgetDraw::testRx);
 }
+void QWidgetDraw::setLabelText(QString labelText)
+{
+ this->label->setText(labelText);
+
+}
+
+
 
 // event
 void QWidgetDraw::resizeEvent(QResizeEvent *event)

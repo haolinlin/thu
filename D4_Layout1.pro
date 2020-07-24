@@ -4,7 +4,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets serialport
 
 SOURCES += \
     layoutDemo.cpp \
-    main.cpp \
+  main.cpp \
     qwidgetdemo.cpp \
     qwidgetdraw.cpp \
     qwidgetserialrx.cpp \
